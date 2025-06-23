@@ -1,4 +1,4 @@
-from bottle import Bottle, run, template, request, static_file
+from bottle import Bottle, run, template, request, static_file,redirect
 from bottle import url
 import os
 import random
@@ -8,6 +8,12 @@ from uebungsliste import übungen
 
 
 css_url = "/static/Style.css"
+
+
+import urllib.parse
+
+
+
 
 motivationssaetze = [
     "Du schaffst das!",
@@ -116,6 +122,27 @@ motivationssaetze = [
 ]
 app = Bottle()
 
+@app.route('/kontakt')
+def kontakt():
+    name = request.query.name or ''
+    bilder = get_images()
+    embed_url = (
+      "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2UYlthDyexZ2uWllT00xVNHVbC1OBOMDaXdg99wWwnCz9Epaox9jLgNGLYAK3X0ymgSVgqQ4UW?gv=true"
+    )
+    return template('kontakt', css=css_url, name=name, bilder=bilder, calendar_embed_url=embed_url)
+
+@app.route('/kontakt/whatsapp')
+def kontakt_whatsapp():
+    number = '+491768214025'
+    text = urllib.parse.quote('Hallo, ich habe eine Frage zu eurem Training.')
+    wa_url = f'https://wa.me/{number}?text={text}'
+    return redirect(wa_url)
+
+@app.route('/static/<filepath:path>')
+def server_static(filepath):
+    
+    static_dir = os.path.join(os.path.dirname(__file__), 'static')
+    return static_file(filepath, root=static_dir)
 
 @app.route('/bilder/<filepath:path>', name='bilder')
 def serve_bild(filepath):
@@ -127,6 +154,20 @@ def get_images():
     return [f for f in os.listdir(bild_ordner)
             if os.path.isfile(os.path.join(bild_ordner, f))
             and f.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.svg'))]
+
+@app.route('/videos/<filepath:path>')
+def serve_video(filepath):
+    video_ordner = os.path.join(os.path.dirname(__file__), 'static')
+    # static_file wählt den passenden Content-Type automatisch
+    return static_file(filepath, root=video_ordner)
+
+def get_videos():
+    video_ordner = os.path.join(os.path.dirname(__file__), 'static')
+    return [
+        f for f in os.listdir(video_ordner)
+        if os.path.isfile(os.path.join(video_ordner, f))
+        and f.lower().endswith(('.mp4', '.webm', '.ogg', '.mov'))
+    ]
 
 # === Routen für deine Seiten, jeweils mit dynamischer Bildliste ===
 @app.route('/')
@@ -152,14 +193,30 @@ def boxkraft():
     name = request.query.name or ''
     bilder = get_images()
     spruch = random.choice(motivationssaetze)
-    return template('krafttraining', css=css_url, name=name, bilder=bilder, motivation=spruch)
+    return template(
+        'krafttraining',
+        css=css_url,
+        name=name,
+        bilder=bilder,
+        motivation=spruch,
+        data=übungen, 
+        url=url
+    )
 
 @app.route('/Cardiotraining')
 def cardiotraining():
     name = request.query.name or ''
     bilder = get_images()
     spruch = random.choice(motivationssaetze)
-    return template('Cardiotraining', css=css_url, name=name, bilder=bilder, motivation=spruch)
+    return template(
+        'Cardiotraining',
+        css=css_url,
+        name=name,
+        bilder=bilder,
+        motivation=spruch,
+        data=übungen, 
+        url=url
+    )
 
 @app.route('/Tabata Uhr')
 def tabata():

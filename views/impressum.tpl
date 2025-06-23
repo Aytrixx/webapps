@@ -11,10 +11,8 @@
           <img src="/bilder/Webshop Logo.png" alt="Boxfit Logo" class="Logo">        </a>
         <ul class="nav-rechts">
           
-          <li><a href="#">Kontakt</a></li>
-          <li><a href="#">Kalorienzähler</a></li>
+          <li><a href="kontakt">Kontakt</a></li>
           <li><a href="Tabata Uhr">Tabata Uhr</a></li>
-          <li><a href="Einloggen">Einloggen</a></li>
         </ul>
       </div>
   </header>

@@ -6,6 +6,7 @@
 </head>
 
 <body>
+<button id="darkToggle" class="dark-toggle-btn">🌙</button>
     <header class="site-header">
         <div class="Navigation">
             <a href="/">
@@ -13,29 +14,47 @@
               </a>
           <ul class="nav-rechts">
             
-            <li><a href="#">Kontakt</a></li>
-            <li><a href="#">Kalorienzähler</a></li>
+            <li><a href="kontakt">Kontakt</a></li>
             <li><a href="Tabata Uhr">Tabata Uhr</a></li>
-            <li><a href="#">Einloggen</a></li>
           </ul>
         </div>
       </header>
      
       <section class="dropdown-section">
-        <h2>Übungen</h2>
+        <h2>Cardiotraining</h2>
+
       
-        <button class="dropdown-btn">Burpees</button>
+    <button class="dropdown-btn">Grundlagenausdauer (aerob) (nur Jab)</button>
         <div class="dropdown-content">
-          <p>Burpees sind eine Ganzkörperübung. 3×20 Wiederholungen empfohlen.</p>
-          <img src="burpees.jpg" alt="Burpees" class="übungsbild">
+          <p>{{data["Grundlagenausdauer (aerob)"]}}</p>
+          <img src="bilder/Grundausdauer Joggen.png" alt="Burpees" class="übungsbild">
         </div>
-      
-        <button class="dropdown-btn">Jumping Jacks</button>
+
+    <button class="dropdown-btn">Rundenausdauer (800m Läufe) (aerob/anaerobe Schwelle)</button>
         <div class="dropdown-content">
-          <p>Gut zum Aufwärmen: 3×30 Sekunden.</p>
-          <img src="jumpingjacks.jpg" alt="Jumping Jacks" class="übungsbild">
+          <p>{{data["Rundenausdauer (800m Läufe) (aerob/anaerobe Schwelle)"]}}.</p>
+          <img src="bilder/Rundenausdauer.png" alt="Burpees" class="übungsbild">
         </div>
-      </section>
+
+    <button class="dropdown-btn">Kurzzeit/Explosivausdauer (100m Sprints) (anaerob)</button>
+        <div class="dropdown-content">
+          <p>{{data["Kurzzeit/Explosivausdauer (100m Sprints) (anaerob)"]}}.</p>
+          <img src="bilder/kurzzeitausdauer.png" alt="Burpees" class="übungsbild">
+        </div>
+
+    <button class="dropdown-btn">Seilspringen</button>
+        <div class="dropdown-content">
+          <p>{{data["Seilspringen"]}}.</p>
+          <img src="bilder/Seilspringen.png" alt="Burpees" class="übungsbild">
+        </div>
+        
+    <button class="dropdown-btn">Freies Schattenboxen</button>
+        <div class="dropdown-content">
+          <p>{{data["Freies Schattenboxen"]}}</p>
+          <img src="bilder/Schattenboxen.png" alt="Burpees" class="übungsbild">
+        </div>
+
+  </section>
       
       <section class="motivation-card">
         <h3>💡 Motivation</h3><p id="motivations-text">{{motivation}}</p>      

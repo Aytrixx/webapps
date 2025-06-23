@@ -7,12 +7,13 @@
     </head>
 
   <body>
+    
     <form action="/" method="get">
     <label for="name">Wie heißt du?</label>
     <input type="text" id="name" name="name" />
     <button type="submit">Absenden</button>
   </form>
-
+  <button id="darkToggle" class="dark-toggle-btn">🌙</button>
   % if name:
     <p>Willkommen, {{name}} zu deinem Boxtraining!</p>
     <p><a href="/krafttraining?name={{name}}">Zum Krafttraining</a></p>
@@ -23,10 +24,9 @@
           <img src="/bilder/Webshop Logo.png" alt="Boxfit Logo" class="Logo">        </a>
         <ul class="nav-rechts">
           
-          <li><a href="#">Kontakt</a></li>
-          <li><a href="#">Kalorienzähler</a></li>
+          <li><a href="kontakt">Kontakt</a></li>
           <li><a href="Tabata Uhr">Tabata Uhr</a></li>
-          <li><a href="Einloggen">Einloggen</a></li>
+          
         </ul>
       </div>
     </header>
@@ -60,8 +60,26 @@
       <p>Wir sind Mohamad, Ayman, Samet und Farhan – vier sportbegeisterte Studenten der Universität Bremen. Diese Website entstand im Rahmen eines Projekts und soll dir helfen, dein Boxtraining effektiv zu starten. Unsere Leidenschaft für Sport treibt uns an, Wissen weiterzugeben und Motivation zu schaffen.</p>
   </section>
 
+<script>
+  const btn = document.getElementById('darkToggle');
+  const root = document.documentElement;
+
+  // beim Laden
+  const saved = localStorage.getItem('theme') || 'light';
+  root.setAttribute('data-theme', saved);
+  btn.textContent = saved === 'dark' ? '☀️' : '🌙';
+
+  btn.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    btn.textContent = next === 'dark' ? '☀️' : '🌙';
+  });
+</script>
+
   </body>
   <footer class="footer">
     <p>&copy; 2025 Boxfit – Studentenprojekt Universität Bremen | <a href="impressum">Impressum</a></p>
   </footer>
+
 </html>
