@@ -1,0 +1,356 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #9a8c8c;
+  color: #f1f1f1;
+}
+
+/* === Startseite (home) === */
+.home {
+  position: relative;
+  background-image: url('/static/home_hintergrund1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  z-index: 1;
+}
+
+.home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* dunkles Overlay */
+  z-index: -1;
+}
+
+.Hauptbereich h2 {
+  font-size: 36px;
+  color: orange;
+  margin-bottom: 10px;
+}
+
+.Hauptbereich p {
+  font-size: 18px;
+  color: #ccc;
+  margin-bottom: 25px;
+}
+
+.button {
+  background-color: orange;
+  color: black;
+  padding: 12px 25px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #ff9900;
+}
+
+/* === Kopfzeile (Header) === */
+.site-header {
+  background-color: #a3a09b;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+}
+
+.Logo {
+  height: 70px;
+  width: auto;
+}
+
+.Navigation {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-rechts {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-rechts li a {
+  color: #000000;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.nav-rechts li a:hover {
+  color: orange;
+}
+
+/* === Trainingsauswahl-Seite === */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.container h1 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: orange;
+}
+
+.trainingswahl {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.trainings-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #2b2b2b;
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  width: 220px;
+  text-decoration: none;
+  transition: transform 0.3s, background-color 0.3s;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+.trainings-button:hover {
+  transform: scale(1.05);
+  background-color: orange;
+  color: black;
+}
+
+.trainings-button img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.trainings-button span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.content {
+  background-color: #121212;
+  padding: 80px 20px;
+  color:#ff9900;
+}
+.content {
+  padding: 60px 20px;
+  background-color: #111;
+  text-align: center;
+}
+
+.content h1 {
+  font-size: 2.5em;
+  color: orange;
+  margin-bottom: 40px;
+}
+
+.ausruestung {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.item {
+  background-color: #1a1a1a;
+  border: 2px solid orange;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 250px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px orange;
+}
+
+.item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.item p {
+  color: #fff;
+  font-size: 1em;
+}
+
+.ueber-uns {
+  padding: 60px 20px;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+}
+
+.ueber-uns h2 {
+  font-size: 2em;
+  color: orange;
+  margin-bottom: 20px;
+}
+
+.ueber-uns p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+/* === Impressum-Seite === */
+main.container {
+  background-color: #1a1a1a;
+  color: #f1f1f1;
+  padding: 80px 20px;
+  max-width: 800px;
+  margin: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 165, 0, 0.2);
+}
+
+main.container h1 {
+  font-size: 36px;
+  color: orange;
+  margin-bottom: 30px;
+}
+
+main.container p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #ddd;
+}
+
+main.container strong {
+  color: orange;
+}
+
+/* === Footer === */
+.footer {
+  background-color: #111;
+  color: #999;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+  border-top: 1px solid #333;
+}
+
+.footer a {
+  color: orange;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: #fff;
+}
+
+.dropdown-section {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #2b2b2b;
+  border-radius: 15px;
+  color: white;
+}
+
+.dropdown-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: orange;
+}
+
+.dropdown-btn {
+  width: 100%;
+  background-color: #444;
+  color: white;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.dropdown-content {
+  display: none;
+  padding: 10px;
+  background-color: #3a3a3a;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.übungsbild {
+  width: 100px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.motivation-card {
+  background-color: #1f1f1f;
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  width: 350px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 20px auto 0 auto;
+}
+
+.motivation-card h3 {
+  color: orange;
+  margin-bottom: 10px;
+}
+
+.tabata-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.tabata-box {
+  background-color: #1f1f1f;
+  padding: 30px;
+  border-radius: 15px;
+  width: 300px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+  text-align: center;
+}
+
+.tabata-timer {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.tabata-button {
+  font-size: 18px;
+  padding: 8px 20px;
+  margin: 5px;
+  cursor: pointer;
+}
