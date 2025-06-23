@@ -3,17 +3,9 @@ from bottle import url
 import os
 import random
 from uebungsliste import übungen
-
-
-
-
-css_url = "/static/Style.css"
-
-
 import urllib.parse
 
-
-
+css_url = "/static/Style.css"
 
 motivationssaetze = [
     "Du schaffst das!",
@@ -133,14 +125,13 @@ def kontakt():
 
 @app.route('/kontakt/whatsapp')
 def kontakt_whatsapp():
-    number = '+491768214025'
+    nummer = '+491768214025'
     text = urllib.parse.quote('Hallo, ich habe eine Frage zu eurem Training.')
-    wa_url = f'https://wa.me/{number}?text={text}'
+    wa_url = f'https://wa.me/{nummer}?text={text}'
     return redirect(wa_url)
 
 @app.route('/static/<filepath:path>')
-def server_static(filepath):
-    
+def get(filepath):
     static_dir = os.path.join(os.path.dirname(__file__), 'static')
     return static_file(filepath, root=static_dir)
 
@@ -176,27 +167,18 @@ def frontend():
     bilder = get_images()
     return template('frontend', css=css_url, name=name, bilder=bilder)
 
-@app.route('/Einloggen')
-def einloggen():
-    name = request.query.name or ''
-    bilder = get_images()
-    return template('Einloggen', css=css_url, name=name, bilder=bilder)
-
 @app.route('/impressum')
 def impressum():
-    name = request.query.name or ''
     bilder = get_images()
-    return template('impressum', css=css_url, name=name, bilder=bilder)
+    return template('impressum', css=css_url, bilder=bilder)
 
 @app.route('/krafttraining')
 def boxkraft():
-    name = request.query.name or ''
     bilder = get_images()
     spruch = random.choice(motivationssaetze)
     return template(
         'krafttraining',
         css=css_url,
-        name=name,
         bilder=bilder,
         motivation=spruch,
         data=übungen, 
@@ -205,13 +187,11 @@ def boxkraft():
 
 @app.route('/Cardiotraining')
 def cardiotraining():
-    name = request.query.name or ''
     bilder = get_images()
     spruch = random.choice(motivationssaetze)
     return template(
         'Cardiotraining',
         css=css_url,
-        name=name,
         bilder=bilder,
         motivation=spruch,
         data=übungen, 
@@ -220,22 +200,19 @@ def cardiotraining():
 
 @app.route('/Tabata Uhr')
 def tabata():
-    name = request.query.name or ''
     bilder = get_images()
-    return template('Tabata Uhr', css=css_url, name=name, bilder=bilder)
+    return template('Tabata Uhr', css=css_url, bilder=bilder)
 
 
 
 @app.route('/technisches-training')
 def techniktraining():
-    name = request.query.name or ''
     bilder = get_images()
     spruch = random.choice(motivationssaetze)
 
     return template(
         'technisches-training',
         css=css_url,
-        name=name,
         bilder=bilder,
         motivation=spruch,
         data=übungen, 
@@ -244,8 +221,8 @@ def techniktraining():
 
 @app.route('/überbrückung')
 def ueberbrueckungsseite():
-    name = request.query.name or ''
+
     bilder = get_images()
-    return template('überbrückung', css=css_url, name=name, bilder=bilder)
+    return template('überbrückung', css=css_url, bilder=bilder)
 
 run(app, host='localhost', port=8080, debug=True, reloader=True)
