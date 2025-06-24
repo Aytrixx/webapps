@@ -117,34 +117,27 @@ app = Bottle()
 @app.route('/kontakt')
 def kontakt():
     name = request.query.name or ''
-    bilder = get_images()
     embed_url = (
       "https://calendar.google.com/calendar/appointments/schedules/AcZssZ2UYlthDyexZ2uWllT00xVNHVbC1OBOMDaXdg99wWwnCz9Epaox9jLgNGLYAK3X0ymgSVgqQ4UW?gv=true"
     )
-    return template('kontakt', css=css_url, name=name, bilder=bilder, calendar_embed_url=embed_url)
+    return template('kontakt', css=css_url, name=name, calendar_embed_url=embed_url)
 
 @app.route('/kontakt/whatsapp')
 def kontakt_whatsapp():
     nummer = '+491768214025'
     text = urllib.parse.quote('Hallo, ich habe eine Frage zu eurem Training.')
-    wa_url = f'https://wa.me/{nummer}?text={text}'
-    return redirect(wa_url)
+    whatsapp_url = f'https://wa.me/{nummer}?text={text}'
+    return redirect(whatsapp_url)
 
 @app.route('/static/<filepath:path>')
 def get(filepath):
-    static_dir = os.path.join(os.path.dirname(__file__), 'static')
-    return static_file(filepath, root=static_dir)
+        static_ordner = os.path.join(os.path.dirname(__file__), 'static')
+        return static_file(filepath, root=static_ordner)
 
 @app.route('/bilder/<filepath:path>', name='bilder')
 def serve_bild(filepath):
     bild_ordner = os.path.join(os.path.dirname(__file__), 'static')
     return static_file(filepath, root=bild_ordner)
-
-def get_images():
-    bild_ordner = os.path.join(os.path.dirname(__file__), 'static')
-    return [f for f in os.listdir(bild_ordner)
-            if os.path.isfile(os.path.join(bild_ordner, f))
-            and f.lower().endswith(('.png', '.jpg', '.jpeg', '.gif', '.svg'))]
 
 @app.route('/videos/<filepath:path>')
 def serve_video(filepath):
@@ -152,34 +145,24 @@ def serve_video(filepath):
     # static_file wählt den passenden Content-Type automatisch
     return static_file(filepath, root=video_ordner)
 
-def get_videos():
-    video_ordner = os.path.join(os.path.dirname(__file__), 'static')
-    return [
-        f for f in os.listdir(video_ordner)
-        if os.path.isfile(os.path.join(video_ordner, f))
-        and f.lower().endswith(('.mp4', '.webm', '.ogg', '.mov'))
-    ]
+
 
 # === Routen für deine Seiten, jeweils mit dynamischer Bildliste ===
 @app.route('/')
 def frontend():
     name = request.query.name or ''
-    bilder = get_images()
-    return template('frontend', css=css_url, name=name, bilder=bilder)
+    return template('frontend', css=css_url, name=name)
 
 @app.route('/impressum')
 def impressum():
-    bilder = get_images()
-    return template('impressum', css=css_url, bilder=bilder)
+    return template('impressum', css=css_url)
 
 @app.route('/krafttraining')
 def boxkraft():
-    bilder = get_images()
     spruch = random.choice(motivationssaetze)
     return template(
         'krafttraining',
         css=css_url,
-        bilder=bilder,
         motivation=spruch,
         data=übungen, 
         url=url
@@ -187,12 +170,10 @@ def boxkraft():
 
 @app.route('/Cardiotraining')
 def cardiotraining():
-    bilder = get_images()
     spruch = random.choice(motivationssaetze)
     return template(
         'Cardiotraining',
         css=css_url,
-        bilder=bilder,
         motivation=spruch,
         data=übungen, 
         url=url
@@ -200,20 +181,17 @@ def cardiotraining():
 
 @app.route('/Tabata Uhr')
 def tabata():
-    bilder = get_images()
-    return template('Tabata Uhr', css=css_url, bilder=bilder)
+    return template('Tabata Uhr', css=css_url)
 
 
 
 @app.route('/technisches-training')
 def techniktraining():
-    bilder = get_images()
     spruch = random.choice(motivationssaetze)
 
     return template(
         'technisches-training',
         css=css_url,
-        bilder=bilder,
         motivation=spruch,
         data=übungen, 
         url=url
@@ -222,7 +200,6 @@ def techniktraining():
 @app.route('/überbrückung')
 def ueberbrueckungsseite():
 
-    bilder = get_images()
-    return template('überbrückung', css=css_url, bilder=bilder)
+    return template('überbrückung', css=css_url)
 
 run(app, host='localhost', port=8080, debug=True, reloader=True)

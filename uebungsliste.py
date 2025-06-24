@@ -184,22 +184,22 @@
     ),
 
     "Kniebeugen":(
-        """Je immer 3 Sätze mit immer 1 Minute Satzdauer. Die Pause
+        """Je immer 3 Sätze mit immer 2 Minute Satzdauer. Die Pause
             zwischen den Sätzen nur 30 Sekunden!"""
 
     ),
 
     "Trizeps drücken am Bett/Stuhl":(
-        """Je immer 3 Sätze mit immer 1 Minute Satzdauer. Die Pause
+        """Je immer 3 Sätze mit immer 2 Minute Satzdauer. Die Pause
         zwischen den Sätzen nur 30 Sekunden!"""
     ),
 
     "Situps":(
-        """Je immer 3 Sätze mit immer 1 Minute Satzdauer. Die Pause
+        """Je immer 3 Sätze mit immer 2 Minute Satzdauer. Die Pause
         zwischen den Sätzen nur 30 Sekunden!"""
     ),
 
-    "Crunches":("""Je immer 3 Sätze mit immer 1 Minute Satzdauer. Die Pause
+    "Crunches":("""Je immer 3 Sätze mit immer 2 Minute Satzdauer. Die Pause
         zwischen den Sätzen nur 30 Sekunden!"""),
 
 
