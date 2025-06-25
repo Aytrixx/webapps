@@ -74,14 +74,14 @@
     const btn  = document.getElementById('darkToggle');
     const root = document.documentElement;
 
-    // beim Laden: gespeichertes Theme anwenden
+    
     document.addEventListener('DOMContentLoaded', () => {
       const saved = localStorage.getItem('theme') || 'light';
       root.setAttribute('data-theme', saved);
       btn.textContent = saved === 'dark' ? '☀️' : '🌙';
     });
 
-    // Klick-Handler: umschalten & speichern
+    
     btn.addEventListener('click', () => {
       const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
       root.setAttribute('data-theme', next);

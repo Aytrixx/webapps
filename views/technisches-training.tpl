@@ -6,7 +6,7 @@
 </head>
 
 <body>
-<button id="darkToggle" class="dark-toggle-btn">🌙</button>
+<button id="dunkelmodus" class="dark-toggle-btn">🌙</button>
     <header class="site-header">
         <div class="Navigation">
           <a href="/">
@@ -178,7 +178,7 @@
 </section>
 
 <script>
-  const btn = document.getElementById('darkToggle');
+  const btn = document.getElementById('dunkelmodus');
   const root = document.documentElement;
 
   

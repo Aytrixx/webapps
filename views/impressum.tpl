@@ -35,7 +35,7 @@
   </main>
 
   <footer class="footer">
-    <p>&copy; 2025 Boxfit – Studentenprojekt Universität Bremen | <a href="impressum.html">Impressum</a></p>
+    <p>&copy; 2025 Boxfit – Studentenprojekt Universität Bremen | <a href="impressum">Impressum</a></p>
   </footer>
 </body>
 </html>

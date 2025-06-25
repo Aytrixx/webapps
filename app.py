@@ -124,7 +124,7 @@ def kontakt():
 
 @app.route('/kontakt/whatsapp')
 def kontakt_whatsapp():
-    nummer = '+491768214025'
+    nummer = '+491792229875'
     text = urllib.parse.quote('Hallo, ich habe eine Frage zu eurem Training.')
     whatsapp_url = f'https://wa.me/{nummer}?text={text}'
     return redirect(whatsapp_url)
@@ -142,12 +142,12 @@ def serve_bild(filepath):
 @app.route('/videos/<filepath:path>')
 def serve_video(filepath):
     video_ordner = os.path.join(os.path.dirname(__file__), 'static')
-    # static_file wählt den passenden Content-Type automatisch
+   
     return static_file(filepath, root=video_ordner)
 
 
 
-# === Routen für deine Seiten, jeweils mit dynamischer Bildliste ===
+
 @app.route('/')
 def frontend():
     name = request.query.name or ''

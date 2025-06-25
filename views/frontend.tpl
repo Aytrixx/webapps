@@ -64,7 +64,7 @@
   const btn = document.getElementById('darkToggle');
   const root = document.documentElement;
 
-  // beim Laden
+  
   const saved = localStorage.getItem('theme') || 'light';
   root.setAttribute('data-theme', saved);
   btn.textContent = saved === 'dark' ? '☀️' : '🌙';

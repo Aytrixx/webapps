@@ -1,7 +1,7 @@
 
 :root {
-  --bg-color: #9a8c8c;       /* dein Standard-Hintergrund */
-  --text-color: #f1f1f1;     /* deine Standard-Textfarbe */
+  --bg-color: #9a8c8c;       
+  --text-color: #f1f1f1;     
 }
 [data-theme="dark"] {
   --bg-color: #121212;
@@ -26,7 +26,7 @@ body { background-color: var(--bg-color); color: var(--text-color); }
 /* === Startseite (home) === */
 .home {
   position: relative;
-  background-image: url('/static/home_hintergrund1.jpg');
+  background-image: url('/bilder/home_hintergrund1.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
